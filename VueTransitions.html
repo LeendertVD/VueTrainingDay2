@@ -1,0 +1,33 @@
+
+<div id="app">
+        <transition name="fade" mode="out-in">
+            <div v-if="ok" key="ok">ok</div>
+            <div v-else key="nok">not ok</div>
+        </transition>
+        <button @click="ok = !ok">toggle</button>
+    </div>
+    
+    <script src="http://unpkg.com/vue"></script>
+    <style>
+        .fade-leave, .fade-enter-to {
+            opacity: 1;
+        }
+        .fade-leave-to, .fade-enter {
+            opacity: 0;
+        }
+        .fade-leave-active, .fade-enter-active {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+    <script>
+        console.log(Vue.version);
+    
+        Vue.config.productionTip = false;
+    
+        const vm = new Vue({
+            data: {
+                ok: true,
+            }
+        }).$mount('#app');
+    
+    </script>
